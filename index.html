@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sodexo</title>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#3f51b5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+    <!-- Simple header with fixed tabs. -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Sodexo</span>
+
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+
+          <button class="mdl-button mdl-js-button mdl-button--icon add-card-button">
+            <i class="material-icons">payment</i>
+          </button>
+        </div>
+        <!-- Tabs -->
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+          <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Cartões</a>
+          <a href="#fixed-tab-2" class="mdl-layout__tab">Mapa</a>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+          <div class="page-content">
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
+            </div>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
+            </div>
+
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+
+            </div>
+
+          </div>
+        </section>
+        <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+          <div class="page-content"></div>
+        </section>
+      </main>
+    </div>
+
+
+    <!-- Add card modal -->
+    <dialog class="mdl-dialog add-card-modal">
+      <h4 class="mdl-dialog__title">Novo cartão</h4>
+      <div class="mdl-dialog__content">
+        <!-- Numeric Textfield with Floating Label -->
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+            <label class="mdl-textfield__label" for="sample4">Número...</label>
+            <span class="mdl-textfield__error">Isto não é um número!</span>
+          </div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+            <label class="mdl-textfield__label" for="sample4">CPF...</label>
+            <span class="mdl-textfield__error">Isto não é um número!</span>
+          </div>
+        </form>
+      </div>
+      <div class="mdl-dialog__actions">
+        <button type="button" class="mdl-button">Adicionar</button>
+        <button type="button" class="mdl-button close">Cancelar</button>
+      </div>
+    </dialog>
+
+    <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
