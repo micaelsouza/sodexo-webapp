@@ -1,0 +1,25 @@
+{
+  "name": "sodexo-webapp",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Micael Souza"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "sodexo",
+    "saldo"
+  ],
+  "homepage": "https://github.com/micaelsouza/sodexo-webapp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-strings": "normalize#^1.1.0",
+    "milligram": "^1.1.0"
+  }
+}

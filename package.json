@@ -11,10 +11,17 @@
     "url": "git+https://github.com/micaelsouza/sodexo-webapp.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Micael Souza",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/micaelsouza/sodexo-webapp/issues"
   },
-  "homepage": "https://github.com/micaelsouza/sodexo-webapp#readme"
+  "homepage": "https://github.com/micaelsouza/sodexo-webapp#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
 }
