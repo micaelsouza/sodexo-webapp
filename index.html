@@ -1,17 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br" ng-app="sodexoApp">
   <head>
+    <meta name="theme-color" content="#2C3E50">
+    <meta http-equiv="cache-control" content="no-cache">
     <meta charset="utf-8">
     <title>Sodexo</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-		<link rel="stylesheet" href="https://milligram.github.io/css/milligram.min.css">
-		<link rel="stylesheet" href="dist/css/sodexo-webapp.min.css">
-    <script src="//localhost:35729/livereload.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/css/main.css" rel="stylesheet">
   </head>
   <body>
+    <main>
+      <div class="page cards-page" ng-controller="cardsController">
+        <header class="page-header">
+          <h1 class="page-header_title">Meus Cartões</h1>
 
-    <script src="dist/js/sodexo-webapp.js.min"></script>
+          <nav class="page-header_menu">
+            <button ng-click="removeCard(cards)" ng-show="someCardSelected(cards)">
+              <span class="material-icons">delete</span>
+            </button>
+            <button ng-click="updateAllCards()">
+              <span class="material-icons">refresh</span>
+            </button>
+          </nav>
+        </header>
+
+        <article class="page-main">
+          <div class="cards">
+            <div
+              class="card"
+              ng-repeat="card in cards"
+              ng-class="{'is-selected': card.selected, 'is-updating': isUpdating}"
+              ng-click="selectCard(card)">
+              <div class="card-name" ng-bind="card.service"></div>
+              <div class="card-number" ng-bind="card.number"></div>
+              <div class="card-balance"><span>R$</span>{{card.balance}}</div>
+              <img src="src/images/card-bg-refeicao.svg">
+            </div>
+          </div>
+        </article>
+
+        <div class="add-card" ng-class="{'is-open': isOpen}">
+          <form name="form" class="add-card-content">
+            <div>
+              <label for="card-number">Número do cartão</label>
+              <input id="card-number" type="number" ng-model="card.number" ng-required="true">
+            </div>
+            <div>
+              <label for="document-number">CPF do titular</label>
+              <input id="document-number" type="number" ng-model="card.document" ng-required="true">
+            </div>
+          </form>
+        </div> <!-- /. add-card -->
+        <button class="add-card-button" ng-class="{'is-open': isOpen}" ng-click="addCard(card)">
+          <span class="material-icons" ng-hide="isOpen || addCardInProgress">add</span>
+          <span class="material-icons" ng-show="isOpen && form.$invalid">close</span>
+          <span class="material-icons" ng-show="isOpen && form.$valid">save</span>
+          <span class="material-icons" ng-show="addCardInProgress && !isOpen">update</span>
+        </button>
+      </div> <!-- /.cards-page -->
+
+    </main>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="src/js/app.js"></script>
+    <script src="src/js/app.cards.controller.js"></script>
+    <script src="src/js/app.cardsAPI.service.js"></script>
+    <script src="src/js/app.idGenerator.service.js"></script>
   </body>
 </html>
