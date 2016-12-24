@@ -50,6 +50,11 @@ angular.module('sodexoApp').factory('cardsAPI', function ($http, idGenerator) {
     var cards = getCards();
     var updatedCards = [];
     return new Promise(function (resolve, reject) {
+      if (cards.length == 0) {
+        resolve();
+        return;
+      };
+
       (function update() {
         var card = cards[0];
         fetchAPI(card).then(function (res) {

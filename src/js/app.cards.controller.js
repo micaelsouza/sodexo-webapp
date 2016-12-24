@@ -49,7 +49,6 @@ angular.module('sodexoApp').controller('cardsController', function ($scope, card
     cardsAPI
       .updateAllCards()
       .then(function () {
-        console.log('updated');
         $scope.cards = cardsAPI.getCards();
         $scope.isUpdating = false;
         $scope.$apply();
