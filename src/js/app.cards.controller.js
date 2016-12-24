@@ -65,4 +65,7 @@ angular.module('sodexoApp').controller('cardsController', function ($scope, card
     });
   };
 
+  // Atualizando todos os cartões quando o app for carregado
+  $scope.updateAllCards();
+
 });
