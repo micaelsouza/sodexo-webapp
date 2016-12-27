@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="sodexoApp">
   <head>
@@ -43,11 +44,23 @@
           <form name="form" class="add-card-content">
             <div>
               <label for="card-number">Número do cartão</label>
-              <input id="card-number" type="number" ng-model="card.number" ng-required="true">
+              <input
+                id="card-number"
+                type="text"
+                minlength="16"
+                maxlength="16"
+                ng-model="card.number"
+                ng-required="true">
             </div>
             <div>
               <label for="document-number">CPF do titular</label>
-              <input id="document-number" type="number" ng-model="card.document" ng-required="true">
+              <input
+                id="document-number"
+                type="text"
+                minlength="11"
+                maxlength="11"
+                ng-model="card.document"
+                ng-required="true">
             </div>
           </form>
         </div> <!-- /. add-card -->
