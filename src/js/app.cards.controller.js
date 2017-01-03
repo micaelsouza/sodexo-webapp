@@ -4,7 +4,7 @@ angular.module('sodexoApp').controller('cardsController', function ($scope, card
   $scope.isOpen = false;
   $scope.addCardInProgress = false;
 
-  $scope.addCard = function(card) {
+  this.addCard = function(card) {
     if ($scope.addCardInProgress) return;
 
     if ($scope.form.$valid) {
@@ -29,7 +29,7 @@ angular.module('sodexoApp').controller('cardsController', function ($scope, card
     $scope.isOpen = !$scope.isOpen;
   };
 
-  $scope.removeCard = function (cards) {
+  this.removeCard = function (cards) {
     if (!confirm('Tem certeza de que deseja remover?')) return;
 
     $scope.cards.forEach(function (card) {
@@ -44,7 +44,7 @@ angular.module('sodexoApp').controller('cardsController', function ($scope, card
     });
   };
 
-  $scope.updateAllCards = function () {
+  this.updateAllCards = function () {
     $scope.isUpdating = true;
     cardsAPI
       .updateAllCards()
@@ -55,17 +55,17 @@ angular.module('sodexoApp').controller('cardsController', function ($scope, card
       });
   };
 
-  $scope.selectCard = function (card) {
+  this.selectCard = function (card) {
     card.selected = !card.selected;
   };
 
-  $scope.someCardSelected = function (cards) {
+  this.someCardSelected = function (cards) {
     return $scope.cards.some(function (card) {
       return card.selected;
     });
   };
 
   // Atualizando todos os cartões quando o app for carregado
-  $scope.updateAllCards();
+  this.updateAllCards();
 
 });
