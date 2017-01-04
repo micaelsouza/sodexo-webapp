@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.material-icons {
+  color: #fff;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  color: #fff;
+}
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100vw;
+  height: 100vh;
+}
+
+.button {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.page {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  flex: 1 0;
+  height: 100%;
+}
+
+.page .page-header_title {
+  text-align: left;
+  font-size: 17px;
+}
+
+.page .page-header,
+.page .page-main,
+.page .page-footer {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.page .page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 56px;
+}
+
+.page .page-header_menu {
+}
+
+.page .page-header_menu button {
+  margin: 0 5px;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.page .page-header_menu button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.page .page-header_menu button:last-child {
+  margin-right: 0;
+}
+
+.page .page-main {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page .page-footer {
+  height: 50px;
+}
