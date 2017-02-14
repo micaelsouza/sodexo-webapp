@@ -1,4 +1,4 @@
-angular.module('sodexoApp').controller('cardsController', function ($scope, cardsAPI) {
+angular.module('sodexoApp').controller('cardsController', function ($scope, $location, cardsAPI) {
 
   $scope.cards = cardsAPI.getCards();
   $scope.isOpen = false;

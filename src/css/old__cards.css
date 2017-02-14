@@ -1,0 +1,109 @@
+@keyframes pulse {
+  0% {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+  }
+  100% {
+    background-color: #CCCCCC;
+    color: #CCCCCC;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 160px;
+  border-radius: 2px;
+  background-color: #9A58B6;
+  /*background-image: url('./images/card-mask.png');*/
+  transition-duration: 0.5s;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card.is-blank span,
+.card.is-loading span {
+  background-color: #ffffff;
+  color: #ffffff;
+  border-radius: 30px;
+  padding: 0 3px;
+  height: 20px;
+}
+
+
+.card.is-blank span.card-balance,
+.card.is-loading span.card-balance {
+  width: 130px;
+  height: 30px;
+}
+
+.card.is-blank span.card-user,
+.card.is-blank span.card-service,
+.card.is-loading span.card-user,
+.card.is-loading span.card-service {
+  width: 80px;
+}
+
+.card.is-blank span.card-number,
+.card.is-loading span.card-number {
+  width: 200px;
+}
+
+.card.is-loading span {
+  animation: 1s linear 0s infinite alternate pulse;
+}
+
+.cards .card {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.cards .card:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.card > span {
+  position: absolute;
+}
+
+.card .card-balance {
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+}
+
+.card .card-balance > span {
+  font-size: 20px;
+}
+
+.card .card-number {
+  bottom: 45px;
+  left: 20px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.card .card-user {
+  bottom: 20px;
+  left: 20px;
+}
+
+.card .card-service {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  .card {
+    width: 300px;
+  }
+}

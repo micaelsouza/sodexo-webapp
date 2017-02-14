@@ -1,0 +1,58 @@
+<section class="page">
+  <div class="page-header">
+    <div class="page-header_menu">
+      <a href="/#!" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <span class="material-icons">arrow_back</span>
+      </a>
+    </div>
+
+    <header class="page-header_container">
+
+    </header>
+  </div>
+
+  <div class="page-body">
+    <article class="add-card is-done page-body_container with_bg">
+      <div
+        class="card is-blank mdl-shadow--2dp"
+        ng-class="{'is-loading': addCardInProgress}">
+        <span class="card-balance"></span>
+        <span class="card-number"></span>
+        <span class="card-user"></span>
+        <span class="card-service"></span>
+      </div>
+
+      <form name="form" class="card-form">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input
+            class="mdl-textfield__input"
+            type="text" pattern="-?[0-9]*(\.[0-9]+)?"
+            ng-model="card.number"
+            ng-required="true" 
+            id="card-number">
+          <label class="mdl-textfield__label" for="card-number">Número do cartão</label>
+          <span class="mdl-textfield__error">Digite apenas números!</span>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input
+            class="mdl-textfield__input"
+            type="text" pattern="-?[0-9]*(\.[0-9]+)?"
+            ng-model="card.cpf"
+            ng-required="true"
+            id="cpf-number">
+          <label class="mdl-textfield__label" for="cpf-number">CPF do titular</label>
+          <span class="mdl-textfield__error">Digite apenas números!</span>
+        </div>
+
+        <button
+          class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored card-form-submit"
+          ng-disabled="form.$invalid || addCardInProgress"
+          ng-click="addCardCtrl.addCard(card)">
+          <span ng-hide="addCardInProgress">Adicionar cartão</span>
+          <span ng-show="addCardInProgress">Aguarde...</span>
+        </button>
+      </form>
+    </article>
+  </div>
+</section>

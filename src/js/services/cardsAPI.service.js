@@ -5,17 +5,13 @@ angular.module('sodexoApp').factory('cardsAPI', function ($http, idGenerator) {
       if (!card) throw('[cardsAPI] falta um parâmetro obrigatório!');
 
       var cards = getCards();
-      card.id = idGenerator();
 
       fetchAPI(card)
         .then(function (res) {
           if (res.data.returnCode == 0) {
-            card.service = res.data.serviceName;
-            card.balance = res.data.balanceAmount.replace('R$ ', '');
-            card.name = res.data.name;
-            card.company = res.data.company;
-
-            cards.push(card);
+            var _card = res.data;
+            _card.id = idGenerator();
+            cards.push(_card);
             localStorage.setItem('cards', JSON.stringify(cards));
             resolve(card);
           } else {

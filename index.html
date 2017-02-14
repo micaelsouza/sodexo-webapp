@@ -1,83 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br" ng-app="sodexoApp">
+<html lang="pt-br">
   <head>
-    <meta name="theme-color" content="#2C3E50">
-    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="theme-color" content="#222222">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name=”keywords” content="sodexo, consulta, saldo">
     <meta name="description" content="Consulte o saldo dos seus carões sodexo de forma fácil e rápida, sem precisar instalar apps.">
     <title>Sodexo | Consulta de Saldo</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="dist/app.min.css" rel="stylesheet">
   </head>
-  <body>
-    <main>
-      <div class="page cards-page" ng-controller="cardsController as ctrl">
-        <header class="page-header">
-          <h1 class="page-header_title">Meus Cartões</h1>
-
-          <nav class="page-header_menu">
-            <button ng-click="ctrl.removeCard(cards)" ng-show="ctrl.someCardSelected(cards)">
-              <span class="material-icons">delete</span>
-            </button>
-            <button ng-click="ctrl.updateAllCards()">
-              <span class="material-icons">refresh</span>
-            </button>
-          </nav>
-        </header>
-
-        <article class="page-main">
-          <div class="cards">
-            <div
-              class="card"
-              ng-repeat="card in cards"
-              ng-class="{'is-selected': card.selected, 'is-updating': isUpdating}"
-              ng-click="ctrl.selectCard(card)">
-              <div class="card-name" ng-bind="card.service"></div>
-              <div class="card-number" ng-bind="card.number"></div>
-              <div class="card-balance"><span>R$</span>{{card.balance}}</div>
-              <img src="dist/images/card-bg-refeicao.svg">
-            </div>
-          </div>
-        </article>
-
-        <div class="add-card" ng-class="{'is-open': isOpen}">
-          <form name="form" class="add-card-content">
-            <div>
-              <label for="card-number">Número do cartão</label>
-              <input
-                id="card-number"
-                type="text"
-                minlength="16"
-                maxlength="16"
-                ng-model="card.number"
-                ng-required="true">
-            </div>
-            <div>
-              <label for="document-number">CPF do titular</label>
-              <input
-                id="document-number"
-                type="text"
-                minlength="11"
-                maxlength="11"
-                ng-model="card.document"
-                ng-required="true">
-            </div>
-          </form>
-        </div> <!-- /. add-card -->
-        <button class="add-card-button" ng-class="{'is-open': isOpen}" ng-click="ctrl.addCard(card)">
-          <span class="material-icons" ng-hide="isOpen || addCardInProgress">add</span>
-          <span class="material-icons" ng-show="isOpen && form.$invalid">close</span>
-          <span class="material-icons" ng-show="isOpen && form.$valid">save</span>
-          <span class="material-icons" ng-show="addCardInProgress && !isOpen">update</span>
-        </button>
-      </div> <!-- /.cards-page -->
+  <body ng-app="sodexoApp">
+    <main ng-view class="view-animate">
 
     </main>
 
     <script src="dist/app.min.js"></script>
-
-    <script>
+    <!-- <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -85,6 +25,6 @@
 
       ga('create', 'UA-89505640-1', 'auto');
       ga('send', 'pageview');
-    </script>
+    </script> -->
   </body>
 </html>

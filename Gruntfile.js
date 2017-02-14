@@ -1,18 +1,25 @@
 module.exports = (grunt) => {
 
   const srcJSFiles = [
-    'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/angular/angular.min.js',
+    'node_modules/material-design-lite/material.js',
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/angular/angular.js',
+    'node_modules/angular-route/angular-route.js',
+    'node_modules/angular-animate/angular-animate.js',
     'src/js/app.js',
-    'src/js/app.cards.controller.js',
-    'src/js/app.cardsAPI.service.js',
-    'src/js/app.idGenerator.service.js'
+    'src/js/controllers/cards.controller.js',
+    'src/js/controllers/addCard.controller.js',
+    'src/js/services/cardsAPI.service.js',
+    'src/js/services/idGenerator.service.js',
+    'src/js/configs/route.config.js'
   ];
 
   const srcCSSFiles = [
+    'node_modules/material-design-lite/material.css',
     'src/css/app.css',
-    'src/css/app.cards.css',
-    'src/css/app.addCards.css'
+    'src/css/cards.css',
+    'src/css/add-cards.css',
+    'src/css/balance.css'
   ];
 
   grunt.initConfig({
@@ -23,6 +30,14 @@ module.exports = (grunt) => {
           cwd: 'src/images',
           src: ['*'],
           dest: 'dist/images'
+        }]
+      },
+      views: {
+        files: [{
+          expand: true,
+          cwd: 'src/views',
+          src: ['*.html'],
+          dest: 'dist/views'
         }]
       }
     },
@@ -37,8 +52,8 @@ module.exports = (grunt) => {
     },
     watch: {
       js: {files: srcJSFiles, tasks: ['concat:js']},
-      css: {files: srcCSSFiles, tasks: ['concat:css'], options: {livereload: true}},
-      html: {files: './*html'},
+      css: {files: srcCSSFiles, tasks: ['concat:css']},
+      html: {files: ['./*html', 'src/views/*html'], tasks: ['copy:views']},
       options: {livereload: true}
     },
     connect: {
