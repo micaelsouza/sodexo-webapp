@@ -1,47 +1,25 @@
-<section class="page">
-  <header class="header">
-    <div class="header-menu">
-      <a href="/#!" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <span class="material-icons">arrow_back</span>
-      </a>
-    </div>
-
-    <div class="header-logo">
-      <img src="dist/images/logo.png" alt="Sodexo">
-    </div>
-
-    <div class="header-menu itens-to-right">
-      <a href="/#!" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <span class="material-icons">delete</span>
-      </a>
+<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row remove-padding">
+      <span class="mdl-layout-title" ng-bind="cardCtrl.title"></span>
     </div>
   </header>
 
-  <div class="body">
-    <article class="cards body-container">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <!-- <a class="card" href="/#!/balance/{{card.id}}" ng-repeat="card in cards">
-        <span class="card-balance">
-          <span>R$</span> 134,<span>50</span>
-        </span>
-        <span class="card-number">
-          0000 0000 0000 0000
-        </span>
-        <span class="card-user">
-          Maria José
-        </span>
-        <span class="card-service">
-          Refeição
-        </span>
-      </a> -->
-    </article>
-  </div>
-</section>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- Your content goes here -->
+      <div class="cards">
+        <card
+          class="mdl-shadow--2dp"
+          ng-repeat="card in cardCtrl.cards"
+          data="card"
+          ng-click="cardCtrl.cardDetail(card)">
+        </card>
+      </div>
+    </div>
+  </main>
+</div>
 
-<a href="/#!/add" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect add_card-button">
+<a href="/#!/add" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add_card-button">
   <i class="material-icons">add</i>
 </a>

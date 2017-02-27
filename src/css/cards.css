@@ -1,0 +1,57 @@
+card {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  /*max-width: 360px;*/
+  border-radius: 3px;
+  background-color: #fff;
+  background-size: cover;
+  background-position: top right;
+  color: #666;
+  cursor: pointer;
+}
+
+card::before {
+  content: "";
+  display: block;
+  padding-bottom: 43%;
+  /*padding-bottom: 56.25%;*/
+}
+
+card:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+card .card-balance,
+card .card-number,
+card .card-user,
+card .card-service {
+  position: absolute;
+}
+
+card .card-balance {
+  top: 32px;
+  left: 20px;
+  font-size: 30px;
+}
+
+card .card-balance > span {
+  font-size: 28px;
+}
+
+card .card-number {
+  bottom: 45px;
+  left: 20px;
+  font-size: 16px;
+  /*color: #ccc;*/
+}
+
+card .card-user {
+  bottom: 20px;
+  left: 20px;
+}
+
+card .card-service {
+  bottom: 20px;
+  right: 20px;
+}

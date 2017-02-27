@@ -3,14 +3,17 @@ module.exports = (grunt) => {
   const srcJSFiles = [
     'node_modules/material-design-lite/material.js',
     'node_modules/jquery/dist/jquery.js',
+    'node_modules/dialog-polyfill/dialog-polyfill.js',
     'node_modules/angular/angular.js',
     'node_modules/angular-route/angular-route.js',
     'node_modules/angular-animate/angular-animate.js',
     'src/js/app.js',
     'src/js/controllers/cards.controller.js',
     'src/js/controllers/addCard.controller.js',
+    'src/js/controllers/balance.controller.js',
     'src/js/services/cardsAPI.service.js',
     'src/js/services/idGenerator.service.js',
+    'src/js/components/card/card.js',
     'src/js/configs/route.config.js'
   ];
 
@@ -19,7 +22,8 @@ module.exports = (grunt) => {
     'src/css/app.css',
     'src/css/cards.css',
     'src/css/add-cards.css',
-    'src/css/balance.css'
+    'src/css/balance.css',
+    'src/css/animations.css'
   ];
 
   grunt.initConfig({

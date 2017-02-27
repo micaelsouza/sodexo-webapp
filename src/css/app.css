@@ -2,87 +2,33 @@
   display: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: transparent;
-  border: 0;
-  outline: 0;
-}
-
 body {
-  font-family: 'Varela Round', sans-serif;
-  color: #fff;
-  background-color: #222222;
+  background-color: #eeeeee;
 }
 
-a {color: #fff;}
-
-.page {
-  display: flex;
-  flex-flow: column;
-  width: 100vw;
-  height: 100vh;
+.remove-padding.mdl-layout__header-row {
+  padding-left: 16px;
 }
 
-.header, .body, .footer {
-  flex: 1 100%;
+.mdl-layout__header {
+  background-color: #242424 !important;
+}
+
+.mdl-layout__header-row,
+.mdl-layout__drawer-button {
+  /*color: #fff !important;*/
+}
+
+
+.cards {
   padding: 10px;
 }
 
-.header, .footer {
-  max-height: 60px;
-}
-
-.body {
-  overflow-y: scroll;
-}
-
-.header {
-  display: flex;
-}
-
-.header .header-menu {
-  display: flex;
-  flex: 1 0px;
-  margin-left: -5px;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.header .header-menu.itens-to-right {
-  margin-right: -5px;
-  justify-content: flex-end;
-}
-
-.header .header-menu > button,
-.header .header-menu > a {
-  margin: 0 5px;
-}
-
-.header .header-logo {
-  flex: 1 0px;
-}
-
-.header .header-logo img {
-  display: block;
-  margin: 0 auto;
-  width: 110px;
-}
-
 .add_card-button {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
-}
-
-.add_card-button {
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
-  background-color: #3498DB;
-  color: #fff;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
 }
 
 .add_card-button:hover {

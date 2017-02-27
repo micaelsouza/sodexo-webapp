@@ -1,28 +1,35 @@
-angular.module('sodexoApp').controller('addCardController', function ($scope, $location, cardsAPI) {
+(function () {
+  'use strict';
 
-  $scope.addCardInProgress = false;
+  angular
+    .module('sodexoApp')
+    .controller('addCardController', addCardController);
 
-  this.addCard = function(card) {
-    if ($scope.addCardInProgress) return;
+  function addCardController ($scope, $location, cardsAPI) {
 
-    if ($scope.form.$valid) {
-      $scope.addCardInProgress = true;
+    /* jshint validthis: true */
+    var vm = this;
+    vm.title = 'Novo cartão';
+    vm.addCard = addCard;
+    vm.addCardInProgress = false;
 
-      cardsAPI
-        .addCard({document: card.cpf, number: card.number})
-        .then(function (card) {
-          delete $scope.card;
-          $scope.form.$setPristine();
-          $scope.addCardInProgress = false;
-          $location.path('/balance/' + card.id);
-          $scope.$apply();
-        }, function (err) {
-          $scope.addCardInProgress = false;
-          $scope.$apply();
-          alert(err);
-        });
+    function addCard (card) {
+      if ($scope.form.$valid) {
+
+        vm.addCardInProgress = true;
+
+        cardsAPI
+          .addCard({document: card.cpf, number: card.number})
+          .then(function (_card) {
+            $location.path('/balance/' + _card.id);
+            $scope.$apply();
+          }, function (err) {
+            vm.addCardInProgress = false;
+            alert(err);
+            $scope.$apply();
+          });
+      }
     }
 
-};
-
-});
+  }
+})();

@@ -1,71 +1,32 @@
-angular.module('sodexoApp').controller('cardsController', function ($scope, $location, cardsAPI) {
+(function () {
+  'use strict';
 
-  $scope.cards = cardsAPI.getCards();
-  $scope.isOpen = false;
-  $scope.addCardInProgress = false;
+  angular
+    .module('sodexoApp')
+    .controller('balanceController', balanceController);
 
-  this.addCard = function(card) {
-    if ($scope.addCardInProgress) return;
+  function balanceController ($scope, $routeParams, $location, cardsAPI) {
 
-    if ($scope.form.$valid) {
-      $scope.addCardInProgress = true;
+    var cardId = $routeParams.id;
+    /* jshint validthis: true */
+    var vm = this;
+    vm.title = 'Saldo';
+    vm.removeCard = removeCard;
 
-      cardsAPI
-        .addCard(card)
+    function removeCard (card) {
+      if (confirm('Deseja realmente excluir este cartão?')) {
+        cardsAPI
+        .removeCard(card)
         .then(function () {
-          $scope.cards = cardsAPI.getCards();
-          $scope.addCardInProgress = false;
+          $location.path('/');
           $scope.$apply();
-        }, function (err) {
-          $scope.addCardInProgress = false;
-          $scope.$apply();
-          alert(err);
         });
-
-      delete $scope.card;
-      $scope.form.$setPristine();
+      }
     }
 
-    $scope.isOpen = !$scope.isOpen;
-  };
-
-  this.removeCard = function (cards) {
-    if (!confirm('Tem certeza de que deseja remover?')) return;
-
-    $scope.cards.forEach(function (card) {
-      if (card.selected) {
-        cardsAPI
-          .removeCard(card)
-          .then(function () {
-            $scope.cards = cardsAPI.getCards();
-            $scope.$apply();
-          });
-      }
-    });
-  };
-
-  this.updateAllCards = function () {
-    $scope.isUpdating = true;
-    cardsAPI
-      .updateAllCards()
-      .then(function () {
-        $scope.cards = cardsAPI.getCards();
-        $scope.isUpdating = false;
-        $scope.$apply();
-      });
-  };
-
-  this.selectCard = function (card) {
-    card.selected = !card.selected;
-  };
-
-  this.someCardSelected = function (cards) {
-    return $scope.cards.some(function (card) {
-      return card.selected;
-    });
-  };
-
-  // Atualizando todos os cartões quando o app for carregado
-  this.updateAllCards();
-
-});
+    // TODO: Depois, migrar esse filtro para o cardsAPI
+    vm.card = cardsAPI.getCards().filter(function (card) {
+      return card.id == cardId;
+    })[0];
+  }
+})();

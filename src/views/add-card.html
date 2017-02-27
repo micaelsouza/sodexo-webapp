@@ -1,34 +1,25 @@
-<section class="page">
-  <div class="page-header">
-    <div class="page-header_menu">
-      <a href="/#!" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <span class="material-icons">arrow_back</span>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <a href="/" class="mdl-layout__drawer-button">
+        <i class="material-icons">close</i>
       </a>
+      <span class="mdl-layout-title" ng-bind="addCardCtrl.title"></span>
+      <div class="mdl-layout-spacer"></div>
     </div>
+  </header>
 
-    <header class="page-header_container">
-
-    </header>
-  </div>
-
-  <div class="page-body">
-    <article class="add-card is-done page-body_container with_bg">
-      <div
-        class="card is-blank mdl-shadow--2dp"
-        ng-class="{'is-loading': addCardInProgress}">
-        <span class="card-balance"></span>
-        <span class="card-number"></span>
-        <span class="card-user"></span>
-        <span class="card-service"></span>
-      </div>
-
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- Your content goes here -->
       <form name="form" class="card-form">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
           <input
             class="mdl-textfield__input"
             type="text" pattern="-?[0-9]*(\.[0-9]+)?"
             ng-model="card.number"
-            ng-required="true" 
+            ng-required="true"
+            autocomplete="off"
             id="card-number">
           <label class="mdl-textfield__label" for="card-number">Número do cartão</label>
           <span class="mdl-textfield__error">Digite apenas números!</span>
@@ -40,19 +31,19 @@
             type="text" pattern="-?[0-9]*(\.[0-9]+)?"
             ng-model="card.cpf"
             ng-required="true"
+            autocomplete="off"
             id="cpf-number">
           <label class="mdl-textfield__label" for="cpf-number">CPF do titular</label>
           <span class="mdl-textfield__error">Digite apenas números!</span>
         </div>
 
         <button
-          class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored card-form-submit"
-          ng-disabled="form.$invalid || addCardInProgress"
+          class="mdl-button mdl-js-botton mdl-button--raised mdl-button--colored card-form-submit"
+          ng-disabled="form.$invalid || addCardCtrl.addCardInProgress"
           ng-click="addCardCtrl.addCard(card)">
-          <span ng-hide="addCardInProgress">Adicionar cartão</span>
-          <span ng-show="addCardInProgress">Aguarde...</span>
+          Adicionar cartão
         </button>
       </form>
-    </article>
-  </div>
-</section>
+    </div>
+  </main>
+</div>

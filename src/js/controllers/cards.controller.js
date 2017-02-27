@@ -1,16 +1,36 @@
-angular.module('sodexoApp').controller('cardsController', function ($scope, cardsAPI) {
+(function () {
+  'use strict';
 
-  this.updateAllCards = function () {
-    $scope.isUpdating = true;
-    cardsAPI
-      .updateAllCards()
-      .then(function () {
-        $scope.cards = cardsAPI.getCards();
-        $scope.isUpdating = false;
-        $scope.$apply();
-      });
-  };
+  angular
+    .module('sodexoApp')
+    .controller('cardsController', cardController);
 
-  $scope.cards = cardsAPI.getCards();
+  function cardController ($scope, $location, cardsAPI) {
 
-});
+    /* jshint validthis: true */
+    var vm = this;
+    vm.title = 'Meus cartões';
+    vm.cards = cardsAPI.getCards();
+    vm.isUpdating = false;
+    vm.updateAllCards = updateAllCards;
+    vm.cardDetail = cardDetail;
+
+
+    var updateAllCards = (function () {
+      vm.isUpdating = true;
+      cardsAPI
+        .updateAllCards()
+        .then(function () {
+          vm.cards = cardsAPI.getCards();
+          vm.isUpdating = false;
+          $scope.$apply();
+        });
+    })()
+
+    function cardDetail (card) {
+      $location.path('/balance/' + card.id);
+    }
+
+  }
+
+})();
