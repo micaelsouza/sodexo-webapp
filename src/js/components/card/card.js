@@ -4,7 +4,7 @@
   angular
     .module(`sodexoApp`)
     .component('card', {
-      bindings: {data: '='},
+      bindings: {data: '<' },
       templateUrl: 'dist/views/card.html'
     });
 

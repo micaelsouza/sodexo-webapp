@@ -14,3 +14,13 @@
 .card-form .card-form-submit {
   margin-top: 15px;
 }
+
+.card-form .card-form-submit:disabled {
+  background-color: #ccc;
+}
+
+.add-card-page .mdl-textfield input,
+.add-card-page .mdl-textfield__label {
+  color: #ccc;
+  border-color: #ccc;
+}

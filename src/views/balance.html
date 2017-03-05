@@ -1,10 +1,10 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="card-balance-page mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
       <a href="/" class="mdl-layout__drawer-button">
         <i class="material-icons">close</i>
       </a>
-      <span class="mdl-layout-title" ng-bind="balanceCtrl.title"></span>
+      <span class="mdl-layout-title" ng-bind="::balanceCtrl.title"></span>
       <div class="mdl-layout-spacer"></div>
       <nav class="mdl-navigation">
         <button
@@ -15,8 +15,9 @@
       </nav>
     </div>
 
-    <div class="mdl-layout__header-row remove-padding">
-      <div class="card-balance-amount" ng-bind="balanceCtrl.card.balanceAmount"></div>
+    <div class="mdl-layout__header-row remove-padding card-wrapper">
+      <card data="::balanceCtrl.card"></card>
+      <!-- <div class="card-balance-amount" ng-bind="::balanceCtrl.card.balanceAmount"></div> -->
     </div>
   </header>
 
@@ -25,14 +26,25 @@
       <!-- Your content goes here -->
       <ul class="mdl-list card-balance">
         <li
-          class="mdl-list__item mdl-list__item--two-line"
-          ng-repeat="transaction in balanceCtrl.card.transactions">
+          class="mdl-list__item mdl-list__item--three-line"
+          ng-if="balanceCtrl.card.transactions.length == 0">
           <span class="mdl-list__item-primary-content">
-            <span ng-bind="transaction.history"></span>
-            <span class="mdl-list__item-sub-title" ng-bind="transaction.date"></span>
+            <span>Sem registros de transações!</span>
+            <span class="mdl-list__item-text-body">
+              Apenas os ultimos 30 dias de registros são mostrados.
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdl-list__item mdl-list__item--two-line"
+          ng-repeat="transaction in balanceCtrl.card.transactions track by transaction.authorizationNumber"
+          ng-class="{'transaction-credit': transaction.type == 'Crédito'}">
+          <span class="mdl-list__item-primary-content">
+            <span class="transaction-history" ng-bind="::transaction.history"></span>
+            <span class=" transaction-date mdl-list__item-sub-title" ng-bind="::transaction.date"></span>
           </span>
           <span class="mdl-list__item-secundary-content">
-            <span ng-bind="transaction.value"></span>
+            <span class="transaction-value" ng-bind="::transaction.value"></span>
           </span>
         </li>
       </ul>

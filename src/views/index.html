@@ -1,7 +1,15 @@
-<div class="main-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="cards-page main-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row remove-padding">
-      <span class="mdl-layout-title" ng-bind="cardCtrl.title"></span>
+      <span class="mdl-layout-title" ng-bind="::cardCtrl.title"></span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <button
+          class="mdl-button mdl-js-botton mdl-button--icon"
+          ng-click="cardCtrl.updateAllCards()">
+          <i class="material-icons">refresh</i>
+        </button>
+      </nav>
     </div>
   </header>
 
@@ -11,7 +19,7 @@
       <div class="cards">
         <card
           class="mdl-shadow--2dp"
-          ng-repeat="card in cardCtrl.cards"
+          ng-repeat="card in cardCtrl.cards track by card.id"
           data="card"
           ng-click="cardCtrl.cardDetail(card)">
         </card>
@@ -20,6 +28,6 @@
   </main>
 </div>
 
-<a href="/#!/add" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored add_card-button">
+<a href="/#!/add" class="add_card-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
   <i class="material-icons">add</i>
 </a>

@@ -13,8 +13,10 @@ module.exports = (grunt) => {
     'src/js/controllers/balance.controller.js',
     'src/js/services/cardsAPI.service.js',
     'src/js/services/idGenerator.service.js',
+    'src/js/interceptors/loading.interceptor.js',
     'src/js/components/card/card.js',
-    'src/js/configs/route.config.js'
+    'src/js/configs/route.config.js',
+    'src/js/configs/interceptors.config.js'
   ];
 
   const srcCSSFiles = [

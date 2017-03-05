@@ -1,4 +1,15 @@
-<span class="card-balance" ng-bind="$ctrl.data.balanceAmount"></span>
-<span class="card-number" ng-bind="$ctrl.data.cardNumber"></span>
-<span class="card-user" ng-bind="$ctrl.data.name"></span>
-<span class="card-service" ng-bind="$ctrl.data.serviceName"></span>
+<div class="card-content">
+  <div class="card-balance">
+    <span ng-bind="::$ctrl.data.balance.currency"></span> {{::$ctrl.data.balance.value}}
+  </div>
+  <div class="card-number">
+    <div class="card-number-content">
+      <div>****</div>
+      <div>****</div>
+      <div>****</div>
+      <div ng-bind="::$ctrl.data.cardNumberFormated[3]"></div>
+    </div>
+  </div>
+  <div class="card-user ellipsis" ng-bind="::$ctrl.data.nameFormated"></div>
+  <div class="card-service" ng-bind="::$ctrl.data.serviceNameFormated"></div>
+</div>

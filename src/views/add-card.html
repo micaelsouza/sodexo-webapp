@@ -1,10 +1,10 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="add-card-page mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header mdl-layout__header--transparent">
     <div class="mdl-layout__header-row">
       <a href="/" class="mdl-layout__drawer-button">
         <i class="material-icons">close</i>
       </a>
-      <span class="mdl-layout-title" ng-bind="addCardCtrl.title"></span>
+      <span class="mdl-layout-title" ng-bind="::addCardCtrl.title"></span>
       <div class="mdl-layout-spacer"></div>
     </div>
   </header>
@@ -20,6 +20,7 @@
             ng-model="card.number"
             ng-required="true"
             autocomplete="off"
+            ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}"
             id="card-number">
           <label class="mdl-textfield__label" for="card-number">Número do cartão</label>
           <span class="mdl-textfield__error">Digite apenas números!</span>
@@ -32,6 +33,7 @@
             ng-model="card.cpf"
             ng-required="true"
             autocomplete="off"
+            ng-model-options="{updateOn: 'default blur', debounce: {'default': 500, 'blur': 0}}"
             id="cpf-number">
           <label class="mdl-textfield__label" for="cpf-number">CPF do titular</label>
           <span class="mdl-textfield__error">Digite apenas números!</span>

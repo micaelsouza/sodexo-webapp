@@ -1,5 +1,22 @@
+.card-balance-page .card-wrapper {
+  height: auto;
+  padding: 10px;
+}
+
 .card-balance {
   margin-top: 0px;
+}
+
+.card-balance .transaction-date {
+  line-height: 30px !important;
+}
+
+.card-balance .transaction-value {
+  color: #c0392b;
+}
+
+.card-balance .transaction-credit .transaction-value {
+  color: #27ae60;
 }
 
 .card-balance-amount {
