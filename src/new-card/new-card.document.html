@@ -1,0 +1,31 @@
+<div class="new-card-page document-number mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <main class="mdl-layout__content">
+    <form name="form" class="card-form">
+
+      <div class="form-input">
+        <div class="form-input__document">
+          <span class="form-input__title">Número do CPF</span>
+          <input
+            type="text"
+            placeholder="000.000.000-00"
+            ng-model="card.cpf"
+            ng-required="true"
+            ng-model-options="{updateOn: 'default blur', debounce: {default: 500, blur: 0}}">
+          <span class="form-input__sub-title">
+            Informe o número de  CPF do titular do cartão.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <a href="/#!/new/card" class="form-button_back mdl-button mdl-js-botton">Voltar</a>
+        <button
+          class="form-button_next mdl-button mdl-js-botton"
+          ng-disabled="form.$invalid"
+          ng-click="ctrl.saveDocumentNumber(card.cpf)">
+          Próximo
+        </button>
+      </div>
+    </form>
+  </main>
+</div>

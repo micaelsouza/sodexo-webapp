@@ -1,0 +1,25 @@
+<div class="home-page main-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header mdl-layout__header--transparent mdl-shadow--2dp">
+    <div class="mdl-layout__header-row remove-padding">
+      <span class="mdl-layout-title" ng-bind="::ctrl.title"></span>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- Your content goes here -->
+      <div class="home-page__cards">
+        <card
+          class="mdl-shadow--2dp"
+          ng-repeat="card in ctrl.cards track by card.id"
+          data="card"
+          ng-click="ctrl.cardDetail(card)">
+        </card>
+      </div>
+    </div>
+  </main>
+</div>
+
+<a href="/#!/new/card" class="home-page__button mdl-button mdl-js-button mdl-button--fab mdl-button--primary">
+  <i class="material-icons">add</i>
+</a>

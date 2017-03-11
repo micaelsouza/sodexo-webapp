@@ -1,0 +1,53 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header card-balance-page">
+  <header class="mdl-layout__header mdl-layout__header--transparent">
+    <div class="mdl-layout__header-row">
+      <a href="/" class="mdl-layout__drawer-button">
+        <i class="material-icons">close</i>
+      </a>
+      <span class="mdl-layout-title" ng-bind="::ctrl.title"></span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <button
+          class="mdl-button mdl-js-botton mdl-button--icon"
+          ng-click="ctrl.removeCard(ctrl.card)">
+          <i class="material-icons">delete</i>
+        </button>
+      </nav>
+    </div>
+
+    <div class="mdl-layout__header-row remove-padding card-wrapper">
+      <card data="::ctrl.card"></card>
+      <!-- <div class="card-balance-amount" ng-bind="::ctrl.card.balanceAmount"></div> -->
+    </div>
+  </header>
+
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <!-- Your content goes here -->
+      <ul class="mdl-list card-balance">
+        <li
+          class="mdl-list__item mdl-list__item--three-line"
+          ng-if="ctrl.card.transactions.length == 0">
+          <span class="mdl-list__item-primary-content">
+            <span>Sem registros de transações!</span>
+            <span class="mdl-list__item-text-body">
+              Apenas os ultimos 30 dias de registros são mostrados.
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdl-list__item mdl-list__item--two-line"
+          ng-repeat="transaction in ctrl.card.transactions track by transaction.authorizationNumber"
+          ng-class="{'transaction-credit': transaction.type == 'Crédito'}">
+          <span class="mdl-list__item-primary-content">
+            <span class="transaction-history" ng-bind="::transaction.history"></span>
+            <span class=" transaction-date mdl-list__item-sub-title" ng-bind="::transaction.date"></span>
+          </span>
+          <span class="mdl-list__item-secundary-content">
+            <span class="transaction-value" ng-bind="::transaction.value"></span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </main>
+</div>

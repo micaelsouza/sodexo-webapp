@@ -1,0 +1,10 @@
+.home-page__cards {
+  padding: 10px 10px 80px 10px;
+}
+
+.home-page__button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 10;
+}

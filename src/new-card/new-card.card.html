@@ -1,0 +1,29 @@
+<div class="new-card-page card-number mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <main class="mdl-layout__content">
+    <form name="form" class="card-form">
+
+      <div class="form-input">
+        <div class="form-input__number">
+          <span class="form-input__title">Número do cartão</span>
+          <input
+            type="fone"
+            placeholder="0000 0000 0000 0000"
+            ng-model="card.number"
+            ng-required="true"
+            ng-model-options="{updateOn: 'default blur', debounce: {default: 500, blur: 0}}">
+          <span class="form-input__sub-title">Informe o número do seu cartão com 16 dígitos.</span>
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <a href="/" class="form-button_back mdl-button mdl-js-botton">Voltar</a>
+        <button
+          class="form-button_next mdl-button mdl-js-botton"
+          ng-disabled="form.$invalid"
+          ng-click="ctrl.saveCardNumber(card.number)">
+          Próximo
+        </button>
+      </div>
+    </form>
+  </main>
+</div>

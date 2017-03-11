@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="app" ng-controller="AppController">
   <head>
-    <meta name="theme-color" content="#242424">
+    <meta name="theme-color" content="{{theme.color}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name=”keywords” content="sodexo, consulta, saldo">
@@ -9,24 +9,14 @@
     <title>Sodexo | Consulta de Saldo</title>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="dist/app.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/style.min.css">
   </head>
-  <body ng-app="sodexoApp">
-    <ng-view class="view-animate">
+  <body>
+    <ng-view></ng-view>
 
-    </ng-view>
+    <!-- <div class="loading" ng-show="isLoading"></div> -->
 
-    <div class="loading" ng-show="isLoading"></div>
-
-    <script src="dist/app.min.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-89505640-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+    <script src="dist/vendor.min.js"></script>
+    <script src="dist/bundle.min.js"></script>
   </body>
 </html>
