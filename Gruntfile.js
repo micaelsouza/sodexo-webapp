@@ -78,7 +78,7 @@ module.exports = function (grunt) {
     'browserify:vendor',
     'browserify:bundle',
     'uglify:vendor',
-    'uglify:bundle',
+    // 'uglify:bundle',
     'cssmin:build',
     'connect',
     'watch'

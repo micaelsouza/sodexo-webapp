@@ -66,11 +66,18 @@ function _formatBalance(val) {
   };
 }
 
-export default class CardsAPI {
-  constructor($http, idGenerator) {
-    Object.assign(this, {$http, idGenerator});
+class CardsAPI {
+  constructor($http, $location, idGenerator) {
+    Object.assign(this, {$http, $location, idGenerator});
+    this.urlApi = this.getUrlApi();
+  }
 
-    this.urlApi = 'https://sodexo.herokuapp.com/api';
+  getUrlApi() {
+    if (this.$location.host() === 'localhost') {
+      return 'http://localhost:5000/api';
+    }
+
+    return 'https://sodexo.herokuapp.com/api';
   }
 
   addCard(number, cpf) {
@@ -193,5 +200,8 @@ export default class CardsAPI {
 
 CardsAPI.$inject = [
   '$http',
+  '$location',
   'idGenerator'
 ];
+
+export default CardsAPI;
