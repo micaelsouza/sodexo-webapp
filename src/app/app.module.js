@@ -3,7 +3,7 @@
 import config from './app.config';
 import run from './app.run';
 
-import commom from './../commom/commom.module';
+import common from './../common/common.module';
 import home from './../home/home.module';
 import newCard from './../new-card/new-card.module';
 import balance from './../balance/balance.module';
@@ -13,7 +13,7 @@ angular
     'ngRoute',
     'ngAnimate',
     'ngMask',
-    commom,
+    common,
     home,
     newCard,
     balance

@@ -1,7 +1,7 @@
 'use strict';
 
 export default {
-  templateUrl: 'src/commom/components/card/card.html',
+  templateUrl: 'src/common/components/card/card.html',
   bindings: {
     data: '<'
   }

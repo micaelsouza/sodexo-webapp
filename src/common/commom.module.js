@@ -8,7 +8,7 @@ import LoadingInterceptor from './interceptors/loading.interceptor';
 
 
 export default angular
-  .module('app.commom', [])
+  .module('app.common', [])
   .service('idGenerator', IdGenerator)
   .service('cardsAPI', CardsAPI)
   .component('card', CardComponent)
